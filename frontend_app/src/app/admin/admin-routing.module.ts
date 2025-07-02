@@ -5,6 +5,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { PresenceStatusComponent } from './presence-status/presence-status.component';
 import { GuestCardComponent } from './guest-card/guest-card.component';
+import { GuestListComponent } from './guest-list/guest-list.component';
 
 const routes: Routes = [
     {
@@ -14,7 +15,7 @@ const routes: Routes = [
       { path: 'user-list', component: UserListComponent },
       { path: 'alerts', component: AlertsComponent },
       { path: 'presence-status', component: PresenceStatusComponent },
-      { path: 'guest-card', component: GuestCardComponent },
+      { path: 'guest-list', component: GuestListComponent },
       { path: '', redirectTo: 'user-list', pathMatch: 'full' }
     ]
   }

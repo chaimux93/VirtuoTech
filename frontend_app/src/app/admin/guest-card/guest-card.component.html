@@ -1,1 +1,15 @@
-<p>guest-card works!</p>
+<form class="space-y-4 w-full max-w-md bg-white p-6 shadow rounded">
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>Nom invité</mat-label>
+    <input matInput placeholder="Entrez le nom">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>Date d'expiration</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary">Générer carte</button>
+</form>

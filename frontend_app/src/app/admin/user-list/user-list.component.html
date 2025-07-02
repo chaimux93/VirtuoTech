@@ -1,1 +1,40 @@
-<p>user-list works!</p>
+<div class="flex justify-between items-center mb-4">
+  <h2 class="text-xl font-semibold">Utilisateurs</h2>
+</div>
+
+<div class="flex justify-between items-center mb-4">
+  <button mat-raised-button color="primary" (click)="openAddUserDialog()">Ajouter utilisateur</button>
+  <button mat-raised-button color="accent" (click)="downloadCSV()">Exporter CSV</button>
+</div>
+
+<mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 w-full">
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Nom </mat-header-cell>
+    <mat-cell *matCellDef="let user"> {{ user.name }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="role">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Rôle </mat-header-cell>
+    <mat-cell *matCellDef="let user"> {{ user.role }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="card">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Carte </mat-header-cell>
+    <mat-cell *matCellDef="let user">
+      <span [class.text-green-600]="user.card === 'Assigned'">{{ user.card }}</span>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Actions </mat-header-cell>
+    <mat-cell *matCellDef="let user">
+      <button *ngIf="user.card === 'None'" mat-button color="primary" (click)="openAssignCardDialog(user)">Ajouter carte</button>
+      <button *ngIf="user.card === 'Assigned'" mat-button color="accent" (click)="openCardDetailsDialog(user)">Voir carte</button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="['name', 'role', 'card', 'actions']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['name', 'role', 'card', 'actions']"></mat-row>
+</mat-table>
+<mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+

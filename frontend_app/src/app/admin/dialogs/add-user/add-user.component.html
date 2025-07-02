@@ -1,0 +1,23 @@
+<h2 class="text-xl font-semibold text-gray-800">Ajouter un utilisateur</h2>
+
+<form [formGroup]="form" class="mt-6 space-y-6">
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="name" placeholder="Entrez le nom complet">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>Rôle</mat-label>
+    <mat-select formControlName="role">
+      <mat-option value="Élève">Élève</mat-option>
+      <mat-option value="Professeur">Professeur</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="flex justify-end gap-4 pt-2">
+    <button mat-stroked-button color="warn" mat-dialog-close>Annuler</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="form.value" [disabled]="form.invalid">
+      Ajouter
+    </button>
+  </div>
+</form>

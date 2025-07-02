@@ -1,1 +1,6 @@
-<p>alerts works!</p>
+<div class="space-y-4">
+  <div *ngFor="let alert of alerts" class="bg-red-100 border-l-4 border-red-500 p-4 shadow">
+    <div class="font-bold text-red-700">{{ alert.type }}</div>
+    <div>{{ alert.user }} - {{ alert.time }}</div>
+  </div>
+</div>

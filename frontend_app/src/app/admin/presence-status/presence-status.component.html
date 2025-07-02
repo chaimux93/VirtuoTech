@@ -1,1 +1,21 @@
-<p>presence-status works!</p>
+<table class="table-auto w-full border mt-4">
+  <thead>
+    <tr class="bg-gray-200">
+      <th class="p-2 text-left">Nom</th>
+      <th class="p-2 text-left">Statut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of presenceList" class="border-b">
+      <td class="p-2">{{ p.name }}</td>
+      <td class="p-2">
+        <span [ngClass]="{
+          'text-green-600': p.status === 'Présent',
+          'text-red-600': p.status === 'Absent'
+        }">
+          {{ p.status }}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
