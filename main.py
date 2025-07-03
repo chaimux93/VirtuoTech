@@ -57,7 +57,7 @@ def pointage(uid: str, email: str, timestamp: datetime = None):
     #         db.commit()
 
     # return present
-    return delay
+    return present
 
 
 @app.get("/utilisateurs")
